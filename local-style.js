@@ -13,24 +13,16 @@ export function splitmix32(a) {
 export default function solidSfcPlugin() {
   return {
     name: "vite-plugin-solid-sfc",
-    enforce: 'post',
     transform(src, id) {
       if (id.endsWith(".jsx")) {
         const attribute = localDataAttributeFromFilePath(id);
-        const formatedJsSrc= src.replace(/(<[^> /]+)/g, (_, tag) => {
-          return `${tag} ${attribute}`;
-        });
-
-        return formatedJsSrc;
+        return src.replace(/(<[^> /]+)/g, (_, tag) => `${tag} ${attribute}`);
       }
       else if (id.endsWith(".css")) {
         const attribute = "[" + localDataAttributeFromFilePath(id) + "]";
-        const startStyleContentIndex = src.indexOf("const __vite__css = \"") + 21;
-        const endStyleContentIndex = src.indexOf("__vite__updateStyle(");
-        const cssFileContents = src.substring(startStyleContentIndex, endStyleContentIndex);
 
         // Get list of all queries inside the file
-        const formatedCssFileContents = cssFileContents.replace(/(}|;|^)((\\n|\\r|\s)*)([^;}]+?)((\\n|\\r|\s)*)(?={)/g, (match, start = "", leftPad1 = "", _a, queries, rightPad1 = "", _b) => {
+        return src.replace(/(}|;|^)((\\n|\\r|\s)*)([^;}]+?)((\\n|\\r|\s)*)(?={)/g, (match, start = "", leftPad1 = "", _a, queries, rightPad1 = "", _b) => {
           // Query is media query skip current query
           if (queries.startsWith("@")) {
             return match;
@@ -60,10 +52,6 @@ export default function solidSfcPlugin() {
 
           return start + leftPad1 + formatedQueries + rightPad1;
         });
-
-        const formatedCssSrc = src.substring(0, startStyleContentIndex) + formatedCssFileContents + src.substring(endStyleContentIndex);
-
-        return formatedCssSrc;
       }
     },
   };

@@ -17,51 +17,54 @@ export default function solidSfcPlugin() {
     transform(src, id) {
       if (id.endsWith(".jsx")) {
         const attribute = localDataAttributeFromFilePath(id);
-        src = src.replace(/(<[^> /]+)/g, (_, tag) => {
-          // console.log(tag);
+        const formatedJsSrc= src.replace(/(<[^> /]+)/g, (_, tag) => {
           return `${tag} ${attribute}`;
         });
 
-        console.log(attribute, id);
-
-        return { code: src, map: null };
-      } else if (id.endsWith(".css")) {
+        return formatedJsSrc;
+      }
+      else if (id.endsWith(".css")) {
         const attribute = "[" + localDataAttributeFromFilePath(id) + "]";
-        console.log(attribute, id);
         const startStyleContentIndex = src.indexOf("const __vite__css = \"") + 21;
         const endStyleContentIndex = src.indexOf("__vite__updateStyle(");
-        const styleContent = src.substring(startStyleContentIndex, endStyleContentIndex);
-        const localyzedStyles = styleContent.replace(/([};]|^)(\s*)([^;}]+)(?={)/g, (_, start, leftPad, selectors) => {
-          selectors = selectors.replace(/\\n|\\r/g, "").trim();
-          const localSelector = selectors.split(",").map(selector => {
-            selector = selector.trim();
-            if (selector.startsWith("@")) {
-              return selector;
-            }
+        const cssFileContents = src.substring(startStyleContentIndex, endStyleContentIndex);
 
-            return selector.split(/\s+/g).map(section => {
-              section = section.trim();
-              if (section.startsWith("&") || section.startsWith(":")) {
-                return section;
-              }
-              console.log("???????????", section);
-              if (section.startsWith("_") || section.startsWith("#_") || section.startsWith("._")) {
-                return section.replace("_", "");
-              }
-              const values = section.split(":");
-              values[0] += attribute;
+        // Get list of all queries inside the file
+        const formatedCssFileContents = cssFileContents.replace(/(}|;|^)((\\n|\\r|\s)*)([^;}]+?)((\\n|\\r|\s)*)(?={)/g, (match, start = "", leftPad1 = "", _a, queries, rightPad1 = "", _b) => {
+          // Query is media query skip current query
+          if (queries.startsWith("@")) {
+            return match;
+          }
+
+          // Loop through queries
+          const formatedQueries = queries.split(",").map(query => {
+            return query.replace(/((\s|\\n|\\r|^)+)(.+?)((\s|\\n|\\r|$)+)/g, (match, leftPad1 = "", _a, selector, rightPad1 = "", _b) => {
+              // We can skip & because the parent should already have scoped styling
+              // Also skip :hover and pseudo elements
               // TODO :has(.class) is not handled here
-              return values.join(":");
-            }).join(" ");
+              if (selector.startsWith("&") || selector.startsWith(":")) {
+                return match;
+              }
+
+              // Use "_" to make styling global
+              if (selector.startsWith("_") || selector.startsWith("#_") || selector.startsWith("._")) {
+                return leftPad1 + selector.replace("_", "") + rightPad1;
+              }
+
+              const selectors = selector.split(":");
+              selectors[0] += attribute;
+              // TODO :has(.class) is not handled here
+              return leftPad1 + selectors.join(":") + rightPad1;
+            });
           }).join(",");
-          return start + leftPad + localSelector;
+
+          return start + leftPad1 + formatedQueries + rightPad1;
         });
 
-        src = src.substring(0, startStyleContentIndex) + localyzedStyles + src.substring(endStyleContentIndex);
+        const formatedCssSrc = src.substring(0, startStyleContentIndex) + formatedCssFileContents + src.substring(endStyleContentIndex);
 
-        return src;
+        return formatedCssSrc;
       }
-
     },
   };
 }

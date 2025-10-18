@@ -1,7 +1,6 @@
 /* @refresh reload */
 import { render } from 'solid-js/web'
-import './index.css'
-import App from './App.jsx'
+import App from './App.scoped.jsx'
 
 const root = document.getElementById('root')
 

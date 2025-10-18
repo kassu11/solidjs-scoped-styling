@@ -1,12 +1,12 @@
 export default function solidSfcPlugin() {
   return {
-    name: "vite-plugin-solid-sfc",
+    name: "vite-solidjs-scoped-styling",
     transform(src, id) {
-      if (id.endsWith(".jsx")) {
+      if (id.endsWith(".scoped.jsx")) {
         const attribute = localDataAttributeFromFilePath(id);
         return src.replace(/(<[^> /]+)/g, (_, tag) => `${tag} ${attribute}`);
       }
-      else if (id.endsWith(".css")) {
+      else if (id.endsWith(".scoped.css")) {
         const attribute = "[" + localDataAttributeFromFilePath(id) + "]";
 
         // Get list of all queries inside the file
@@ -169,8 +169,10 @@ const stringBetweenTwoChars = (a, b) => {
 
 const chars = stringBetweenTwoChars("0", "9") + stringBetweenTwoChars("a", "z") + stringBetweenTwoChars("A", "Z");
 
+const removeFileType = filePath => filePath.replace(/\.[^.]+$/, "");
+
 function randomHasFromFilePath(filePath) {
-  const filePathWithoutEnding = filePath.replace(/\.[^.]+$/, "");
+  const filePathWithoutEnding = removeFileType(filePath);
   const randomHash = Array(8).fill(0);
   filePathWithoutEnding.split("").reduce((acc, char, i) => {
     const random = splitmix32(char.charCodeAt(0) * acc);

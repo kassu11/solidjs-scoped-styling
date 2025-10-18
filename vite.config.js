@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
-import styles from "./local-style.js";
+import scopedStyling from "./solidjs-scoped-styling.js";
 
 export default defineConfig({
-  plugins: [styles(), solid()],
+  plugins: [scopedStyling(), solid()],
   css: {
     devSourcemap: true
   }

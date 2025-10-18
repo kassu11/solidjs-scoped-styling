@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./Card.scoped.css";
 
 export function Card(props) {
   return (

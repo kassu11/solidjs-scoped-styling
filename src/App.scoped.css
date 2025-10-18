@@ -1,0 +1,128 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  color: red;
+}
+
+div {
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(_:has(_:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(&:has(&:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+}
+
+p {
+  color: red;
+
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:where(+ p) {
+    color: blue;
+  }
+  &:is(:hover, :focus) {
+    color: green;
+  }
+
+  &:hover:focus {
+    color: yellow;
+  }
+
+  ._test .foo {
+    color: blue;
+  }
+  _.test .foo {
+    color: blue;
+  }
+  .test.foo {
+    color: blue;
+  }
+  ._test.foo {
+    color: blue;
+  }
+  _.test.foo {
+    color: blue;
+  }
+
+  .test .foo {
+    color: blue;
+  }
+}
+
+p\[:hover {
+  color: yellow;
+}
+
+p[data-special] {
+  font-size: 2rem;
+}
+
+a[href*="with a space"] {
+  color: rebeccapurple;
+  font-weight: 900;
+}
+
+a[href*="]"] {
+  color: orange;
+}
+
+div {
+  background-color: red;
+
+  > a[href*="with a space"].foo .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > _a[href*="with a space"].foo .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo _.bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  a:hover {
+    color: #747bff;
+  }
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}

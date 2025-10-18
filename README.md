@@ -9,8 +9,8 @@ This plugin was only made for my own use and I have no interest in updating or k
 
 1. Copy `solidjs-scoped-styling.js` file from this repo
 2. Use this plugin inside your `vite.config.js` file. Check how this projects config has been setup for more details
-3. Create `file-name.scoped.css` file and with the same name jsx file `same-name.scoped.jsx`
-  - **NOTE:** The plugin generates the scoping hashes based on the file names so if the two files don't have matching names the hashes will not match
+3. Create `file-name.scoped.css` file and with the same name jsx file `same-name.scoped.jsx`  
+  3.1. **NOTE:** The plugin generates the scoping hashes based on the file names so if the two files don't have matching names the hashes will not match
 4. You are done
 
 ## Examples

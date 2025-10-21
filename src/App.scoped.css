@@ -126,3 +126,25 @@ div {
     background-color: #f9f9f9;
   }
 }
+
+/* You can use comments */
+h1 {
+  color: red;
+}
+
+h1/*This also works*/{
+  color: blue;
+}
+h1 /*This also works*/ {
+  color: orange;
+}
+
+_div/*This also works*/ h1{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar{
+  color: aqua;
+}
+_.foo/*This also works*/.bar{
+  color: aqua;
+}

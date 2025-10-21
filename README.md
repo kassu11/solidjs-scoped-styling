@@ -196,3 +196,57 @@ div[data-k-gMlexUnA] {
   }
 }
 ```
+
+---
+
+Placing commend blocks in weird places should not break anything.
+
+```css
+/* You can use comments */
+h1 {
+  color: red;
+}
+
+h1/*This also works*/{
+  color: blue;
+}
+h1 /*This also works*/ {
+  color: orange;
+}
+
+_div/*This also works*/ h1{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar{
+  color: aqua;
+}
+_.foo/*This also works*/.bar{
+  color: yellow;
+}
+```
+
+After:
+
+```css
+/* You can use comments */
+h1[data-k-ke5y9cp8] {
+  color: red;
+}
+
+h1/*This also works*/[data-k-ke5y9cp8]{
+  color: blue;
+}
+h1[data-k-ke5y9cp8] /*This also works*/ {
+  color: orange;
+}
+
+div/*This also works*/ h1[data-k-ke5y9cp8]{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar[data-k-ke5y9cp8]{
+  color: aqua;
+}
+.foo/*This also works*/.bar{
+  color: yellow;
+}
+```

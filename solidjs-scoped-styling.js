@@ -167,7 +167,7 @@ const stringBetweenTwoChars = (a, b) => {
 }
 
 
-const chars = stringBetweenTwoChars("0", "9") + stringBetweenTwoChars("a", "z") + stringBetweenTwoChars("A", "Z");
+const chars = stringBetweenTwoChars("0", "9") + stringBetweenTwoChars("a", "z");
 
 const removeFileType = filePath => filePath.replace(/\.[^.]+$/, "");
 

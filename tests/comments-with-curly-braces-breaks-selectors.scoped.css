@@ -1,0 +1,11 @@
+/* } */
+p {
+  color: red;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+/* } */
+p[data-k-jnn75bcq] {
+  color: red;
+}

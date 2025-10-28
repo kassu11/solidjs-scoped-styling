@@ -1,0 +1,303 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  color: red;
+}
+
+div {
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(_:has(_:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(&:has(&:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+}
+
+p {
+  color: red;
+
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:where(+ p) {
+    color: blue;
+  }
+  &:is(:hover, :focus) {
+    color: green;
+  }
+
+  &:hover:focus {
+    color: yellow;
+  }
+
+  ._test .foo {
+    color: blue;
+  }
+  _.test .foo {
+    color: blue;
+  }
+  .test.foo {
+    color: blue;
+  }
+  ._test.foo {
+    color: blue;
+  }
+  _.test.foo {
+    color: blue;
+  }
+
+  .test .foo {
+    color: blue;
+  }
+}
+
+p\[:hover {
+  color: yellow;
+}
+
+p[data-special] {
+  font-size: 2rem;
+}
+
+a[href*="with a space"] {
+  color: rebeccapurple;
+  font-weight: 900;
+}
+
+a[href*="]"] {
+  color: orange;
+}
+
+div {
+  background-color: red;
+
+  > a[href*="with a space"].foo .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > _a[href*="with a space"].foo .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo _.bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  a:hover {
+    color: #747bff;
+  }
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* You can use comments */
+h1 {
+  color: red;
+}
+
+h1/*This also works*/{
+  color: blue;
+}
+h1 /*This also works*/ {
+  color: orange;
+}
+
+_div/*This also works*/ h1{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar{
+  color: aqua;
+}
+_.foo/*This also works*/.bar{
+  color: aqua;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1[data-k-oz8k4z7v] {
+  color: red;
+}
+
+div[data-k-oz8k4z7v] {
+  &:not([data-k-oz8k4z7v]:has([data-k-oz8k4z7v]:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(&:has(&:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+}
+
+p[data-k-oz8k4z7v] {
+  color: red;
+
+  &:not([data-k-oz8k4z7v]:has([data-k-oz8k4z7v]:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:where(+ p[data-k-oz8k4z7v]) {
+    color: blue;
+  }
+  &:is([data-k-oz8k4z7v]:hover, [data-k-oz8k4z7v]:focus) {
+    color: green;
+  }
+
+  &:hover:focus {
+    color: yellow;
+  }
+
+  ._test[data-k-oz8k4z7v] .foo[data-k-oz8k4z7v] {
+    color: blue;
+  }
+  .test .foo[data-k-oz8k4z7v] {
+    color: blue;
+  }
+  .test.foo[data-k-oz8k4z7v] {
+    color: blue;
+  }
+  ._test.foo[data-k-oz8k4z7v] {
+    color: blue;
+  }
+  .test.foo {
+    color: blue;
+  }
+
+  .test[data-k-oz8k4z7v] .foo[data-k-oz8k4z7v] {
+    color: blue;
+  }
+}
+
+p\[[data-k-oz8k4z7v]:hover {
+  color: yellow;
+}
+
+p[data-special][data-k-oz8k4z7v] {
+  font-size: 2rem;
+}
+
+a[href*="with a space"][data-k-oz8k4z7v] {
+  color: rebeccapurple;
+  font-weight: 900;
+}
+
+a[href*="]"][data-k-oz8k4z7v] {
+  color: orange;
+}
+
+div[data-k-oz8k4z7v] {
+  background-color: red;
+
+  > a[href*="with a space"].foo[data-k-oz8k4z7v] .bar[data-k-oz8k4z7v] {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo .bar[data-k-oz8k4z7v] {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo[data-k-oz8k4z7v] .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  a[data-k-oz8k4z7v]:hover {
+    color: #747bff;
+  }
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a[data-k-oz8k4z7v]:hover {
+    color: #747bff;
+  }
+
+  button[data-k-oz8k4z7v] {
+    background-color: #f9f9f9;
+  }
+}
+
+/* You can use comments */
+h1[data-k-oz8k4z7v] {
+  color: red;
+}
+
+h1/*This also works*/[data-k-oz8k4z7v]{
+  color: blue;
+}
+h1[data-k-oz8k4z7v] /*This also works*/ {
+  color: orange;
+}
+
+div/*This also works*/ h1[data-k-oz8k4z7v]{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar[data-k-oz8k4z7v]{
+  color: aqua;
+}
+.foo/*This also works*/.bar{
+  color: aqua;
+}

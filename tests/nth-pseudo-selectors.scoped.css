@@ -1,0 +1,33 @@
+p:nth-child(6) {
+  color: red;
+}
+
+p:nth-child(n + 8) {
+  color: orange;
+}
+
+p:nth-child(2n + 4 of p) {
+  color: green;
+}
+
+div:nth-child(2n + 2 of :has(p.foo)) {
+  font-size: 2rem;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+p[data-k-tzkvh8co]:nth-child(6) {
+  color: red;
+}
+
+p[data-k-tzkvh8co]:nth-child(n + 8) {
+  color: orange;
+}
+
+p[data-k-tzkvh8co]:nth-child(2n + 4 of p[data-k-tzkvh8co]) {
+  color: green;
+}
+
+div[data-k-tzkvh8co]:nth-child(2n + 2 of [data-k-tzkvh8co]:has(p.foo[data-k-tzkvh8co])) {
+  font-size: 2rem;
+}

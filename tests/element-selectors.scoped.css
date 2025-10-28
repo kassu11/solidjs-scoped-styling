@@ -1,0 +1,25 @@
+h1 {
+  color: red;
+}
+
+element-name-with-lines {
+  color: red;
+}
+
+div p {
+  color: red;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+h1[data-k-3o8tdlwv] {
+  color: red;
+}
+
+element-name-with-lines[data-k-3o8tdlwv] {
+  color: red;
+}
+
+div[data-k-3o8tdlwv] p[data-k-3o8tdlwv] {
+  color: red;
+}

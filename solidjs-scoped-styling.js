@@ -91,6 +91,7 @@ export const transform = (src, id) => {
 
       let scopeCurrentSelector = true;
       let hasSelector = false;
+      let noScopingInsidePseudoSelector = false;
       let isPseudoClass = false;
       const pseudoSelectorScope = [];
 
@@ -113,6 +114,18 @@ export const transform = (src, id) => {
           // Position is either nested attribute or string selector
           else if (src[i - 1] !== "\\" && src[i] in attributeScopeCharacters) {
             attributeScope.push(src[i]);
+          }
+          returnQuery += src[i];
+        }
+        // Position is inside pseudo class that should not be scoped early exit
+        // We don't want :nth-child(3) to become: :nth-child(3[data-k-234234])
+        else if (noScopingInsidePseudoSelector) {
+          // Check if the pseudo class contains "of" keyword
+          // You can now scope inside no scope pseudo selector
+          // :nth-child(3 of div[data-k-234234])
+          if (equalsBackwards("of ", src, i)) {
+            noScopingInsidePseudoSelector = false;
+            scopeCurrentSelector = true;
           }
           returnQuery += src[i];
         }
@@ -142,12 +155,14 @@ export const transform = (src, id) => {
           }
           hasSelector = false;
           isPseudoClass = false;
+          noScopingInsidePseudoSelector = false;
           returnQuery += src[i];
         }
         // No need to scope the current selector because the parent should handle the scoping
         else if (src[i] === "&") {
           scopeCurrentSelector = false
           isPseudoClass = false;
+          noScopingInsidePseudoSelector = false;
           returnQuery += src[i];
         }
         // Selector contains pseudo selector with arguments
@@ -156,17 +171,13 @@ export const transform = (src, id) => {
           pseudoSelectorScope.push(scopeCurrentSelector);
           // These pseudo classes don't take classes as input so don't scope them
           // We don't want :nth-child(3) to become: :nth-child(3[data-k-234234])
-          // Pseudo class that we want to scope could be :has, :where: :is, :not etc.
-          if (
-            equalsBackwards("child(", src, i) ||
-              equalsBackwards("type(", src, i) ||
-              equalsBackwards(":dir(", src, i) ||
-              equalsBackwards(":state(", src, i) ||
-              equalsBackwards(":host(", src, i) ||
-              equalsBackwards(":context(", src, i)
-          ) {
+          // NOTE: nth-child can take selectors with the "of" keyword
+          if (equalsBackwards("child(", src, i) || equalsBackwards("type(", src, i) || equalsBackwards(":dir(", src, i)) {
+            noScopingInsidePseudoSelector = true;
             scopeCurrentSelector = false;
-          } else {
+          }
+          // Pseudo class that we want to scope could be :has, :where: :is, :not etc.
+          else {
             scopeCurrentSelector = true
           }
           hasSelector = false;

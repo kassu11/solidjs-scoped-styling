@@ -34,6 +34,7 @@ function scanFolder(folderPath) {
             process.stdout.write(color + part.value + '\x1b[0m');
           }
         });
+        console.log("\n\n")
       } else {
         console.log(`✅ Test "${item.name}" passed`);
       }

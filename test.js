@@ -9,6 +9,11 @@ function scanFolder(folderPath) {
   for (const item of items) {
     const itemPath = path.join(folderPath, item.name);
 
+    if (!item.name.endsWith(".scoped.css")) {
+      console.error(`❌ Test file name must end in ".scoped.css", but the file name is: "${item.name}"`);
+      continue;
+    }
+
     if (!item.isDirectory()) {
       const [input, answer] = fs.readFileSync(itemPath, "utf8").split("/* =============== EXPECTED OUTPUT =============== */").map(v => v?.trim());
       const output = transform(input, item.name);

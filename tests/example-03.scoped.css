@@ -1,0 +1,31 @@
+div {
+  color: red;
+
+  &.foo:hover {
+    color: yellow;
+  }
+
+  .bar {
+    color: blue;
+  }
+  .foo .bar {
+    color: orange;
+  }
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+div[data-k-06c55601] {
+  color: red;
+
+  &.foo:hover {
+    color: yellow;
+  }
+
+  .bar[data-k-06c55601] {
+    color: blue;
+  }
+  .foo[data-k-06c55601] .bar[data-k-06c55601] {
+    color: orange;
+  }
+}

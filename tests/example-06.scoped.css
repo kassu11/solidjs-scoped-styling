@@ -1,0 +1,45 @@
+/* You can use comments */
+h1 {
+  color: red;
+}
+
+h1/*This also works*/{
+  color: blue;
+}
+h1 /*This also works*/ {
+  color: orange;
+}
+
+_div/*This also works*/ h1{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar{
+  color: aqua;
+}
+_.foo/*This also works*/.bar{
+  color: yellow;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+/* You can use comments */
+h1[data-k-ffd0ab61] {
+  color: red;
+}
+
+h1/*This also works*/[data-k-ffd0ab61]{
+  color: blue;
+}
+h1[data-k-ffd0ab61] /*This also works*/ {
+  color: orange;
+}
+
+div/*This also works*/ h1[data-k-ffd0ab61]{
+  color: rebeccapurple;
+}
+.foo/*This also works*/.bar[data-k-ffd0ab61]{
+  color: aqua;
+}
+.foo/*This also works*/.bar{
+  color: yellow;
+}

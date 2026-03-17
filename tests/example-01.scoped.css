@@ -1,0 +1,23 @@
+/* root is never scoped */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+h1 {
+  color: red;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+/* root is never scoped */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+h1[data-k-e68880c1] {
+  color: red;
+}

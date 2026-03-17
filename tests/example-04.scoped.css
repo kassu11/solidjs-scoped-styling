@@ -1,0 +1,35 @@
+div {
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(_:has(_:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(&:has(&:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+div[data-k-fe8c0a0f] {
+  &:not([data-k-fe8c0a0f]:has([data-k-fe8c0a0f]:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(:has(:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+
+  &:not(&:has(&:hover)):nth-child(3)::after {
+    content: "Complex selector";
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,9 @@
+_h1 {
+  color: red;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+h1 {
+  color: red;
+}

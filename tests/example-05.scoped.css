@@ -1,0 +1,39 @@
+div {
+  background-color: red;
+
+  > a[href*="with a space"].foo .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > _a[href*="with a space"].foo .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo _.bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+div[data-k-9c8e3c2d] {
+  background-color: red;
+
+  > a[href*="with a space"].foo[data-k-9c8e3c2d] .bar[data-k-9c8e3c2d] {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo .bar[data-k-9c8e3c2d] {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+
+  > a[href*="with a space"].foo[data-k-9c8e3c2d] .bar {
+    color: rebeccapurple;
+    font-weight: 900;
+  }
+}

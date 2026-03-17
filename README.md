@@ -30,18 +30,17 @@ Basic tag scoping
 h1 {
   color: red;
 }
-```
 
-After:
+/* =============== EXPECTED OUTPUT =============== */
 
-```css
+/* root is never scoped */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
 
-h1[data-k-gMlexUnA] {
+h1[data-k-e68880c1] {
   color: red;
 }
 ```
@@ -54,11 +53,9 @@ Making h1 tag selector unscoped using `_` character.
 _h1 {
   color: red;
 }
-```
 
-After:
+/* =============== EXPECTED OUTPUT =============== */
 
-```css
 h1 {
   color: red;
 }
@@ -83,23 +80,20 @@ div {
     color: orange;
   }
 }
-```
 
-After:
+/* =============== EXPECTED OUTPUT =============== */
 
-```css
-div[data-k-gMlexUnA] {
+div[data-k-06c55601] {
   color: red;
 
   &.foo:hover {
     color: yellow;
   }
 
-  .bar[data-k-gMlexUnA] {
+  .bar[data-k-06c55601] {
     color: blue;
   }
-
-  .foo[data-k-gMlexUnA] .bar[data-k-gMlexUnA] {
+  .foo[data-k-06c55601] .bar[data-k-06c55601] {
     color: orange;
   }
 }
@@ -126,13 +120,11 @@ div {
     font-size: 2rem;
   }
 }
-```
 
-After:
+/* =============== EXPECTED OUTPUT =============== */
 
-```css
-div[data-k-gMlexUnA] {
-  &:not([data-k-gMlexUnA]:has([data-k-gMlexUnA]:hover)):nth-child(3)::after {
+div[data-k-fe8c0a0f] {
+  &:not([data-k-fe8c0a0f]:has([data-k-fe8c0a0f]:hover)):nth-child(3)::after {
     content: "Complex selector";
     font-size: 2rem;
   }
@@ -172,25 +164,23 @@ div {
     font-weight: 900;
   }
 }
-```
 
-After:
+/* =============== EXPECTED OUTPUT =============== */
 
-```css
-div[data-k-gMlexUnA] {
+div[data-k-9c8e3c2d] {
   background-color: red;
 
-  > a[href*="with a space"].foo .bar[data-k-gMlexUnA] {
+  > a[href*="with a space"].foo[data-k-9c8e3c2d] .bar[data-k-9c8e3c2d] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo .bar {
+  > a[href*="with a space"].foo .bar[data-k-9c8e3c2d] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo _.bar[data-k-gMlexUnA] {
+  > a[href*="with a space"].foo[data-k-9c8e3c2d] .bar {
     color: rebeccapurple;
     font-weight: 900;
   }
@@ -223,27 +213,25 @@ _div/*This also works*/ h1{
 _.foo/*This also works*/.bar{
   color: yellow;
 }
-```
 
-After:
+/* =============== EXPECTED OUTPUT =============== */
 
-```css
 /* You can use comments */
-h1[data-k-ke5y9cp8] {
+h1[data-k-ffd0ab61] {
   color: red;
 }
 
-h1/*This also works*/[data-k-ke5y9cp8]{
+h1/*This also works*/[data-k-ffd0ab61]{
   color: blue;
 }
-h1[data-k-ke5y9cp8] /*This also works*/ {
+h1[data-k-ffd0ab61] /*This also works*/ {
   color: orange;
 }
 
-div/*This also works*/ h1[data-k-ke5y9cp8]{
+div/*This also works*/ h1[data-k-ffd0ab61]{
   color: rebeccapurple;
 }
-.foo/*This also works*/.bar[data-k-ke5y9cp8]{
+.foo/*This also works*/.bar[data-k-ffd0ab61]{
   color: aqua;
 }
 .foo/*This also works*/.bar{

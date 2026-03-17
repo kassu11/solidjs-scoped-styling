@@ -1,0 +1,33 @@
+h1_ {
+  color: red;
+}
+
+element_name {
+  color: red;
+}
+
+._foo {
+  color: red;
+}
+
+.foo:_has(.bar_baz) {
+  color: red;
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+h1_[data-k-a2f77334] {
+  color: red;
+}
+
+element_name[data-k-a2f77334] {
+  color: red;
+}
+
+._foo[data-k-a2f77334] {
+  color: red;
+}
+
+.foo[data-k-a2f77334]:_has(.bar_baz[data-k-a2f77334]) {
+  color: red;
+}

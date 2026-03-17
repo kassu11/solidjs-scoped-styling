@@ -12,14 +12,14 @@ div p {
 
 /* =============== EXPECTED OUTPUT =============== */
 
-h1[data-k-3o8tdlwv] {
+h1[data-k-2dcb038d] {
   color: red;
 }
 
-element-name-with-lines[data-k-3o8tdlwv] {
+element-name-with-lines[data-k-2dcb038d] {
   color: red;
 }
 
-div[data-k-3o8tdlwv] p[data-k-3o8tdlwv] {
+div[data-k-2dcb038d] p[data-k-2dcb038d] {
   color: red;
 }

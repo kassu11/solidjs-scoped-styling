@@ -204,10 +204,7 @@ export const transform = (src, id) => {
         // args: :not(.class) no args: :hover
         else if (src[i] === ":") {
           // Don't scope :root, if there are any other pseudo selectors that you should not scope add them here
-          if (equalsforwards(":root", src, i)) {
-            scopeCurrentSelector = false;
-          }
-          else if (scopeCurrentSelector) {
+          if (!equalsforwards(":root", src, i) && scopeCurrentSelector) {
             returnQuery += attribute;
           }
           scopeCurrentSelector = false;

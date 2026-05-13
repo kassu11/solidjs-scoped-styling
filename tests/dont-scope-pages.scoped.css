@@ -1,0 +1,40 @@
+@page {
+  size: 8.5in 9in;
+  margin-top: 4in;
+}
+
+@page :left {
+  margin-top: 4in;
+}
+
+@page wide {
+  size: a4 landscape;
+}
+
+@page {
+  @top-right {
+    content: "Page " counter(pageNumber);
+  }
+}
+
+
+/* =============== EXPECTED OUTPUT =============== */
+
+@page {
+  size: 8.5in 9in;
+  margin-top: 4in;
+}
+
+@page :left {
+  margin-top: 4in;
+}
+
+@page wide {
+  size: a4 landscape;
+}
+
+@page {
+  @top-right {
+    content: "Page " counter(pageNumber);
+  }
+}

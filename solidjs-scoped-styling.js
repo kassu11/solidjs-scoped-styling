@@ -262,7 +262,7 @@ export const transform = (src, id) => {
     returnQuery.matchAll(/@keyframes +([^{]+)/g).forEach(([, name]) => names.push(name.trim()));
 
     names.forEach(name => {
-      const regex = new RegExp(`(\\s)${name}(\\s|{)`, "g");
+      const regex = new RegExp(`(\\s|:)${name}(\\s|{|;)`, "g");
       returnQuery = returnQuery.replace(regex, (_, a, b) => {
         // Remove "_" from keyframe names
         if (name.startsWith("_")) return a + name.substring(1) + b;

@@ -16,18 +16,18 @@ element_name {
 
 /* =============== EXPECTED OUTPUT =============== */
 
-h1_[data-k-a2f77334] {
+h1_[data-k-4b2a3f41] {
   color: red;
 }
 
-element_name[data-k-a2f77334] {
+element_name[data-k-4b2a3f41] {
   color: red;
 }
 
-._foo[data-k-a2f77334] {
+._foo[data-k-4b2a3f41] {
   color: red;
 }
 
-.foo[data-k-a2f77334]:_has(.bar_baz[data-k-a2f77334]) {
+.foo[data-k-4b2a3f41]:_has(.bar_baz[data-k-4b2a3f41]) {
   color: red;
 }

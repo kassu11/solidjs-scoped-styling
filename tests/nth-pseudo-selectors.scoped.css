@@ -24,26 +24,26 @@ div:nth-child(2n + 2 of :has(_p.foo)) {
 
 /* =============== EXPECTED OUTPUT =============== */
 
-p[data-k-392a205b]:nth-child(6) {
+p[data-k-f829bd4e]:nth-child(6) {
   color: red;
 }
 
-p[data-k-392a205b]:nth-child(n + 8) {
+p[data-k-f829bd4e]:nth-child(n + 8) {
   color: orange;
 }
 
-p[data-k-392a205b]:nth-child(2n + 4 of p[data-k-392a205b]) {
+p[data-k-f829bd4e]:nth-child(2n + 4 of p[data-k-f829bd4e]) {
   color: green;
 }
 
-div[data-k-392a205b]:nth-child(2n + 2 of [data-k-392a205b]:has(p.foo[data-k-392a205b])) {
+div[data-k-f829bd4e]:nth-child(2n + 2 of [data-k-f829bd4e]:has(p.foo[data-k-f829bd4e])) {
   font-size: 2rem;
 }
 
-div[data-k-392a205b]:nth-child(2n + 2 of :has(p.foo[data-k-392a205b])) {
+div[data-k-f829bd4e]:nth-child(2n + 2 of :has(p.foo[data-k-f829bd4e])) {
   font-size: 2rem;
 }
 
-div[data-k-392a205b]:nth-child(2n + 2 of [data-k-392a205b]:has(p.foo)) {
+div[data-k-f829bd4e]:nth-child(2n + 2 of [data-k-f829bd4e]:has(p.foo)) {
   font-size: 2rem;
 }

@@ -146,19 +146,6 @@ div {
   }
 }
 
-@keyframes move {
-  0%   {top:0px;}
-  25%  {top:200px;}
-  50%  {top:100px;}
-  75%  {top:200px;}
-  100% {top:0px;}
-}
-
-@keyframes move-2 {
-  from {top: 0px;}
-  to {top: 200px;}
-}
-
 /* You can use comments */
 h1 {
   color: red;
@@ -198,12 +185,12 @@ _.foo/*This also works*/.bar{
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1[data-k-aa41eb34] {
+h1[data-k-b34c7bc2] {
   color: red;
 }
 
-div[data-k-aa41eb34] {
-  &:not([data-k-aa41eb34]:has([data-k-aa41eb34]:hover)):nth-child(3)::after {
+div[data-k-b34c7bc2] {
+  &:not([data-k-b34c7bc2]:has([data-k-b34c7bc2]:hover)):nth-child(3)::after {
     content: "Complex selector";
     font-size: 2rem;
   }
@@ -219,18 +206,18 @@ div[data-k-aa41eb34] {
   }
 }
 
-p[data-k-aa41eb34] {
+p[data-k-b34c7bc2] {
   color: red;
 
-  &:not([data-k-aa41eb34]:has([data-k-aa41eb34]:hover)):nth-child(3)::after {
+  &:not([data-k-b34c7bc2]:has([data-k-b34c7bc2]:hover)):nth-child(3)::after {
     content: "Complex selector";
     font-size: 2rem;
   }
 
-  &:where(+ p[data-k-aa41eb34]) {
+  &:where(+ p[data-k-b34c7bc2]) {
     color: blue;
   }
-  &:is([data-k-aa41eb34]:hover, [data-k-aa41eb34]:focus) {
+  &:is([data-k-b34c7bc2]:hover, [data-k-b34c7bc2]:focus) {
     color: green;
   }
 
@@ -238,41 +225,41 @@ p[data-k-aa41eb34] {
     color: yellow;
   }
 
-  ._test[data-k-aa41eb34] .foo[data-k-aa41eb34] {
+  ._test[data-k-b34c7bc2] .foo[data-k-b34c7bc2] {
     color: blue;
   }
-  .test .foo[data-k-aa41eb34] {
+  .test .foo[data-k-b34c7bc2] {
     color: blue;
   }
-  .test.foo[data-k-aa41eb34] {
+  .test.foo[data-k-b34c7bc2] {
     color: blue;
   }
-  ._test.foo[data-k-aa41eb34] {
+  ._test.foo[data-k-b34c7bc2] {
     color: blue;
   }
   .test.foo {
     color: blue;
   }
 
-  .test[data-k-aa41eb34] .foo[data-k-aa41eb34] {
+  .test[data-k-b34c7bc2] .foo[data-k-b34c7bc2] {
     color: blue;
   }
 }
 
-p\[[data-k-aa41eb34]:hover {
+p\[[data-k-b34c7bc2]:hover {
   color: yellow;
 }
 
-p[data-special][data-k-aa41eb34] {
+p[data-special][data-k-b34c7bc2] {
   font-size: 2rem;
 }
 
-a[href*="with a space"][data-k-aa41eb34] {
+a[href*="with a space"][data-k-b34c7bc2] {
   color: rebeccapurple;
   font-weight: 900;
 }
 
-a[href*="]"][data-k-aa41eb34] {
+a[href*="]"][data-k-b34c7bc2] {
   color: orange;
 }
 
@@ -295,71 +282,58 @@ a[href*="]"][data-k-aa41eb34] {
   }
 }
 
-div[data-k-aa41eb34] {
+div[data-k-b34c7bc2] {
   background-color: red;
 
-  > a[href*="with a space"].foo[data-k-aa41eb34] .bar[data-k-aa41eb34] {
+  > a[href*="with a space"].foo[data-k-b34c7bc2] .bar[data-k-b34c7bc2] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo .bar[data-k-aa41eb34] {
+  > a[href*="with a space"].foo .bar[data-k-b34c7bc2] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo[data-k-aa41eb34] .bar {
+  > a[href*="with a space"].foo[data-k-b34c7bc2] .bar {
     color: rebeccapurple;
     font-weight: 900;
   }
 }
 
 @media (prefers-color-scheme: light) {
-  a[data-k-aa41eb34]:hover {
+  a[data-k-b34c7bc2]:hover {
     color: #747bff;
   }
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  a[data-k-aa41eb34]:hover {
+  a[data-k-b34c7bc2]:hover {
     color: #747bff;
   }
 
-  button[data-k-aa41eb34] {
+  button[data-k-b34c7bc2] {
     background-color: #f9f9f9;
   }
 }
 
-@keyframes move {
-  0%   {top:0px;}
-  25%  {top:200px;}
-  50%  {top:100px;}
-  75%  {top:200px;}
-  100% {top:0px;}
-}
-
-@keyframes move-2 {
-  from {top: 0px;}
-  to {top: 200px;}
-}
-
 /* You can use comments */
-h1[data-k-aa41eb34] {
+h1[data-k-b34c7bc2] {
   color: red;
 }
 
-h1/*This also works*/[data-k-aa41eb34]{
+h1/*This also works*/[data-k-b34c7bc2]{
   color: blue;
 }
-h1[data-k-aa41eb34] /*This also works*/ {
+h1[data-k-b34c7bc2] /*This also works*/ {
   color: orange;
 }
 
-div/*This also works*/ h1[data-k-aa41eb34]{
+div/*This also works*/ h1[data-k-b34c7bc2]{
   color: rebeccapurple;
 }
-.foo/*This also works*/.bar[data-k-aa41eb34]{
+.foo/*This also works*/.bar[data-k-b34c7bc2]{
   color: aqua;
 }
 .foo/*This also works*/.bar{

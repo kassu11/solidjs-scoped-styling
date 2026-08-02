@@ -1,7 +1,7 @@
 div {
   animation: 300ms linear 0ms 1 normal none running move-me-please-simple;
   animation:
-    move-me-please 1.2s infinite linear alternate,
+    1.2s infinite linear alternate move-me-please,
     move-me-please-simple 2.4s infinite linear,
     move-dont-scope 2.4s infinite linear,
     /* You can write the scoped animation name with _ or without */
@@ -39,7 +39,7 @@ div {
 div[data-k-361264b9] {
   animation: 300ms linear 0ms 1 normal none running move-me-please-simple-361264b9;
   animation:
-    move-me-please-361264b9 1.2s infinite linear alternate,
+    1.2s infinite linear alternate move-me-please-361264b9,
     move-me-please-simple-361264b9 2.4s infinite linear,
     move-dont-scope 2.4s infinite linear,
     /* You can write the scoped animation name with _ or without */

@@ -20,7 +20,7 @@ var App = _$$component(_REGISTRY, "App", function App() {
         return [
                 _tmpl$2(),
                 _$createComponent(A, {
-                        "data-k-9f86d081": true,
+                        "data-k-9f86d081": "",
                         href: "Hello",
                         textContent: "asdas"
                 }),

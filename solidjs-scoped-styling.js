@@ -16,7 +16,7 @@ export const transform = (src, id) => {
       if (tag) {
         return `${tag} ${attribute}`
       } else {
-        return `${createComponent}"${attribute}": true`;
+        return `${createComponent}"${attribute}": ""`;
       }
     });
   }

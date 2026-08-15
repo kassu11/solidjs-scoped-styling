@@ -19,20 +19,20 @@ div {
 
 /* =============== EXPECTED OUTPUT =============== */
 
-div[data-k-efde41c9] {
+div[data-k-9f86d081] {
   background-color: red;
 
-  > a[href*="with a space"].foo[data-k-efde41c9] .bar[data-k-efde41c9] {
+  > a[href*="with a space"].foo[data-k-9f86d081] .bar[data-k-9f86d081] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo .bar[data-k-efde41c9] {
+  > a[href*="with a space"].foo .bar[data-k-9f86d081] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo[data-k-efde41c9] .bar {
+  > a[href*="with a space"].foo[data-k-9f86d081] .bar {
     color: rebeccapurple;
     font-weight: 900;
   }

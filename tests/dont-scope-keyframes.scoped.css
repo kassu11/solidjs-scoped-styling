@@ -8,7 +8,7 @@ div {
     _move-dont-scope 2.4s infinite linear,
     /* _ will not be removed, because no local matching keyframe name was found */
     _global_animation_name_which_starts_with_underscore 2.4s infinite linear,
-    dont_scope 2.4s infinite linear; 
+    dont_scope 2.4s infinite linear;
 };
 
 /* This will be scoped, because there is no underscore */
@@ -36,21 +36,21 @@ div {
 /* =============== EXPECTED OUTPUT =============== */
 
 
-div[data-k-361264b9] {
-  animation: 300ms linear 0ms 1 normal none running move-me-please-simple-361264b9;
+div[data-k-9f86d081] {
+  animation: 300ms linear 0ms 1 normal none running move-me-please-simple-9f86d081;
   animation:
-    1.2s infinite linear alternate move-me-please-361264b9,
-    move-me-please-simple-361264b9 2.4s infinite linear,
+    1.2s infinite linear alternate move-me-please-9f86d081,
+    move-me-please-simple-9f86d081 2.4s infinite linear,
     move-dont-scope 2.4s infinite linear,
     /* You can write the scoped animation name with _ or without */
     move-dont-scope 2.4s infinite linear,
     /* _ will not be removed, because no local matching keyframe name was found */
     _global_animation_name_which_starts_with_underscore 2.4s infinite linear,
-    dont_scope 2.4s infinite linear; 
+    dont_scope 2.4s infinite linear;
 };
 
 /* This will be scoped, because there is no underscore */
-@keyframes move-me-please-361264b9 {
+@keyframes move-me-please-9f86d081 {
   0%   {top:0px;}
   25%  {top:200px;}
   50%  {top:100px;}
@@ -59,7 +59,7 @@ div[data-k-361264b9] {
 }
 
 /* This will be scoped, because there is no underscore */
-@keyframes move-me-please-simple-361264b9 {
+@keyframes move-me-please-simple-9f86d081 {
   from {top: 0px;}
   to {top: 200px;}
 }

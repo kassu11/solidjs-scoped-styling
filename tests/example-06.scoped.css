@@ -23,21 +23,21 @@ _.foo/*This also works*/.bar{
 /* =============== EXPECTED OUTPUT =============== */
 
 /* You can use comments */
-h1[data-k-4e00f046] {
+h1[data-k-9f86d081] {
   color: red;
 }
 
-h1/*This also works*/[data-k-4e00f046]{
+h1/*This also works*/[data-k-9f86d081]{
   color: blue;
 }
-h1[data-k-4e00f046] /*This also works*/ {
+h1[data-k-9f86d081] /*This also works*/ {
   color: orange;
 }
 
-div/*This also works*/ h1[data-k-4e00f046]{
+div/*This also works*/ h1[data-k-9f86d081]{
   color: rebeccapurple;
 }
-.foo/*This also works*/.bar[data-k-4e00f046]{
+.foo/*This also works*/.bar[data-k-9f86d081]{
   color: aqua;
 }
 .foo/*This also works*/.bar{

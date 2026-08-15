@@ -185,12 +185,12 @@ _.foo/*This also works*/.bar{
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1[data-k-b34c7bc2] {
+h1[data-k-9f86d081] {
   color: red;
 }
 
-div[data-k-b34c7bc2] {
-  &:not([data-k-b34c7bc2]:has([data-k-b34c7bc2]:hover)):nth-child(3)::after {
+div[data-k-9f86d081] {
+  &:not([data-k-9f86d081]:has([data-k-9f86d081]:hover)):nth-child(3)::after {
     content: "Complex selector";
     font-size: 2rem;
   }
@@ -206,18 +206,18 @@ div[data-k-b34c7bc2] {
   }
 }
 
-p[data-k-b34c7bc2] {
+p[data-k-9f86d081] {
   color: red;
 
-  &:not([data-k-b34c7bc2]:has([data-k-b34c7bc2]:hover)):nth-child(3)::after {
+  &:not([data-k-9f86d081]:has([data-k-9f86d081]:hover)):nth-child(3)::after {
     content: "Complex selector";
     font-size: 2rem;
   }
 
-  &:where(+ p[data-k-b34c7bc2]) {
+  &:where(+ p[data-k-9f86d081]) {
     color: blue;
   }
-  &:is([data-k-b34c7bc2]:hover, [data-k-b34c7bc2]:focus) {
+  &:is([data-k-9f86d081]:hover, [data-k-9f86d081]:focus) {
     color: green;
   }
 
@@ -225,41 +225,41 @@ p[data-k-b34c7bc2] {
     color: yellow;
   }
 
-  ._test[data-k-b34c7bc2] .foo[data-k-b34c7bc2] {
+  ._test[data-k-9f86d081] .foo[data-k-9f86d081] {
     color: blue;
   }
-  .test .foo[data-k-b34c7bc2] {
+  .test .foo[data-k-9f86d081] {
     color: blue;
   }
-  .test.foo[data-k-b34c7bc2] {
+  .test.foo[data-k-9f86d081] {
     color: blue;
   }
-  ._test.foo[data-k-b34c7bc2] {
+  ._test.foo[data-k-9f86d081] {
     color: blue;
   }
   .test.foo {
     color: blue;
   }
 
-  .test[data-k-b34c7bc2] .foo[data-k-b34c7bc2] {
+  .test[data-k-9f86d081] .foo[data-k-9f86d081] {
     color: blue;
   }
 }
 
-p\[[data-k-b34c7bc2]:hover {
+p\[[data-k-9f86d081]:hover {
   color: yellow;
 }
 
-p[data-special][data-k-b34c7bc2] {
+p[data-special][data-k-9f86d081] {
   font-size: 2rem;
 }
 
-a[href*="with a space"][data-k-b34c7bc2] {
+a[href*="with a space"][data-k-9f86d081] {
   color: rebeccapurple;
   font-weight: 900;
 }
 
-a[href*="]"][data-k-b34c7bc2] {
+a[href*="]"][data-k-9f86d081] {
   color: orange;
 }
 
@@ -282,58 +282,58 @@ a[href*="]"][data-k-b34c7bc2] {
   }
 }
 
-div[data-k-b34c7bc2] {
+div[data-k-9f86d081] {
   background-color: red;
 
-  > a[href*="with a space"].foo[data-k-b34c7bc2] .bar[data-k-b34c7bc2] {
+  > a[href*="with a space"].foo[data-k-9f86d081] .bar[data-k-9f86d081] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo .bar[data-k-b34c7bc2] {
+  > a[href*="with a space"].foo .bar[data-k-9f86d081] {
     color: rebeccapurple;
     font-weight: 900;
   }
 
-  > a[href*="with a space"].foo[data-k-b34c7bc2] .bar {
+  > a[href*="with a space"].foo[data-k-9f86d081] .bar {
     color: rebeccapurple;
     font-weight: 900;
   }
 }
 
 @media (prefers-color-scheme: light) {
-  a[data-k-b34c7bc2]:hover {
+  a[data-k-9f86d081]:hover {
     color: #747bff;
   }
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  a[data-k-b34c7bc2]:hover {
+  a[data-k-9f86d081]:hover {
     color: #747bff;
   }
 
-  button[data-k-b34c7bc2] {
+  button[data-k-9f86d081] {
     background-color: #f9f9f9;
   }
 }
 
 /* You can use comments */
-h1[data-k-b34c7bc2] {
+h1[data-k-9f86d081] {
   color: red;
 }
 
-h1/*This also works*/[data-k-b34c7bc2]{
+h1/*This also works*/[data-k-9f86d081]{
   color: blue;
 }
-h1[data-k-b34c7bc2] /*This also works*/ {
+h1[data-k-9f86d081] /*This also works*/ {
   color: orange;
 }
 
-div/*This also works*/ h1[data-k-b34c7bc2]{
+div/*This also works*/ h1[data-k-9f86d081]{
   color: rebeccapurple;
 }
-.foo/*This also works*/.bar[data-k-b34c7bc2]{
+.foo/*This also works*/.bar[data-k-9f86d081]{
   color: aqua;
 }
 .foo/*This also works*/.bar{

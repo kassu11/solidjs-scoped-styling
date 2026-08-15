@@ -15,17 +15,17 @@ div {
 
 /* =============== EXPECTED OUTPUT =============== */
 
-div[data-k-a459e3e7] {
+div[data-k-9f86d081] {
   color: red;
 
   &.foo:hover {
     color: yellow;
   }
 
-  .bar[data-k-a459e3e7] {
+  .bar[data-k-9f86d081] {
     color: blue;
   }
-  .foo[data-k-a459e3e7] .bar[data-k-a459e3e7] {
+  .foo[data-k-9f86d081] .bar[data-k-9f86d081] {
     color: orange;
   }
 }

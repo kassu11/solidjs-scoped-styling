@@ -9,14 +9,16 @@ function scanFolder(folderPath) {
   for (const item of items) {
     const itemPath = path.join(folderPath, item.name);
 
-    if (!item.name.endsWith(".scoped.css")) {
-      console.error(`❌ Test file name must end in ".scoped.css", but the file name is: "${item.name}"`);
+    if (!item.name.match(/\.scoped\.(css|jsx)$/)) {
+      console.error(`❌ Test file name must end in ".scoped.jsx/css", but the file name is: "${item.name}"`);
       continue;
     }
 
     if (!item.isDirectory()) {
       const [input, answer] = fs.readFileSync(itemPath, "utf8").split("/* =============== EXPECTED OUTPUT =============== */").map(v => v?.trim());
-      const output = transform(input, item.name);
+      // Change file name to make the hash always same... 
+      // It's annoing when changing file names to fix up the hashes, also windows and linux handles the paths differently, so the hash does not match
+      const output = transform(input, item.name.replace(/.*(\.scoped\.(css|jsx)$)/, (_, fileType) => "test" + fileType ));
       if (answer !== output) {
         console.error(`❌ Test "${item.name}" failed`);
         console.log("======================= EXPECTED =======================");

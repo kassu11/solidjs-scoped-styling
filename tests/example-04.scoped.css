@@ -17,8 +17,8 @@ div {
 
 /* =============== EXPECTED OUTPUT =============== */
 
-div[data-k-afb1e6c2] {
-  &:not([data-k-afb1e6c2]:has([data-k-afb1e6c2]:hover)):nth-child(3)::after {
+div[data-k-9f86d081] {
+  &:not([data-k-9f86d081]:has([data-k-9f86d081]:hover)):nth-child(3)::after {
     content: "Complex selector";
     font-size: 2rem;
   }

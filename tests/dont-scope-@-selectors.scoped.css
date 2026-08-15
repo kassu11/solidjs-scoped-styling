@@ -34,7 +34,7 @@ light
 /* =============== EXPECTED OUTPUT =============== */
 
 @media (prefers-color-scheme: light) {
-  a[data-k-5b471d36]:hover {
+  a[data-k-9f86d081]:hover {
     color: #747bff;
   }
 
@@ -42,17 +42,17 @@ light
     color: #213547;
     background-color: #ffffff;
   }
-  a[data-k-5b471d36]:hover {
+  a[data-k-9f86d081]:hover {
     color: #747bff;
   }
 
-  button[data-k-5b471d36] {
+  button[data-k-9f86d081] {
     background-color: #f9f9f9;
   }
 }
 
 @layer {
-  div[data-k-5b471d36] {
+  div[data-k-9f86d081] {
     @container (width < 200px) {
       color: red;
     }

@@ -1,12 +1,13 @@
 /* @refresh reload */
 import { render } from 'solid-js/web'
 import App from './App.scoped.jsx'
+import { Card } from './Card.scoped.jsx'
+import { Route, Router } from '@solidjs/router';
 
 const root = document.getElementById('root')
 
 render(() => (
-  <>
-    <h1>Don't style this red</h1>
-    <App />
-  </>
+  <Router root={App} base="/">
+    <Route path="/test" component={Card} />
+  </Router>
 ), root);

@@ -15,7 +15,23 @@ This plugin was only made for my own use and I have no interest in updating or k
 
 ## Examples
 
-This plugin add only one new syntax. You can make `scoped` styling unscoped by using `_` character before the selector. Here are examples:
+This plugin adds only two tiny changes and tries to keep the syntax changes as minimal as possible.
+1. Insde your `.css` files, you can make `scoped` styling unscoped by using `_` character before the selector. Below are examples of how scoped `css` files will be handled
+2. You can add scoping to components outside your file, using `scoped` attribute, inside `jsx`
+  - **NOTE 1:** If the component does not support passing attribute props, this does not work
+  - **NOTE 2:** You should almost never need to use this, the only case I have needed to use this is when using solid router `A` component
+
+Example of scoping outside components
+
+```jsx
+function App() {
+  // Scope a solid-router link component, otherwise you will always need to type _a inside your scoped styling
+  return (
+    <A scoped href="url">Click me</A>
+  );
+}
+
+```
 
 Basic tag scoping
 

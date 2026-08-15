@@ -12,7 +12,13 @@ export const transform = (src, id) => {
   if (id.endsWith(".scoped.jsx")) {
     const hash = localHashFromFilePath(id);
     const attribute = localDataAttributeFromHash(hash);
-    return src.replace(/(<[^>=+< /"']+)/g, (_, tag) => `${tag} ${attribute}`);
+    return src.replace(/(<[^>=+< /"']+)|(\$createComponent\([^{]+\{[^}{]*)scoped:\s?true/g, (_, tag, createComponent) => {
+      if (tag) {
+        return `${tag} ${attribute}`
+      } else {
+        return `${createComponent}"${attribute}": true`;
+      }
+    });
   }
   else if (id.endsWith(".scoped.css")) {
     const hash = localHashFromFilePath(id);

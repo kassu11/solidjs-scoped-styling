@@ -1,5 +1,6 @@
 import { createSignal } from 'solid-js'
 import './App.scoped.css'
+import { A } from '@solidjs/router'
 
 function App() {
   const [count, setCount] = createSignal(0)
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <h1>Style this</h1>
+      <A scoped href="Hello" textContent="asdas"></A>
       <p>Lorem ipsum dolor sit amet.</p>
       <p>Lorem ipsum dolor sit amet.</p>
       <p>Lorem ipsum dolor sit amet.</p>

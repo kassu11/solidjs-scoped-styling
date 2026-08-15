@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: red;
+}
+
 h1 {
   color: red;
 }

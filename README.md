@@ -15,23 +15,14 @@ This plugin was only made for my own use and I have no interest in updating or k
 
 ## Examples
 
-This plugin adds only two tiny changes and tries to keep the syntax changes as minimal as possible.
-1. Insde your `.css` files, you can make `scoped` styling unscoped by using `_` character before the selector. Below are examples of how scoped `css` files will be handled
+This plugin adds only three tiny changes and tries to keep the syntax changes as minimal as possible.
+1. Insde your `scoped.css` files, you can make `scoped` styling unscoped by using `_` character before the selector. Below are examples of how `scoped.css` files will be handled
 2. You can add scoping to components outside your file, using `scoped` attribute, inside `jsx`
   - **NOTE 1:** If the component does not support passing attribute props, this does not work
   - **NOTE 2:** You should almost never need to use this, the only case I have needed to use this is when using solid router `A` component
+3. CSS variables starting with `--scoped` get the `scoped` part replaced with the file hash, in both `.scoped.css` and `.scoped.jsx` files, so `--scoped-color` becomes `--9f86d081-color`
 
-Example of scoping outside components
-
-```jsx
-function App() {
-  // Scope a solid-router link component, otherwise you will always need to type _a inside your scoped styling
-  return (
-    <A scoped href="url">Click me</A>
-  );
-}
-
-```
+---
 
 Basic tag scoping
 
@@ -58,6 +49,46 @@ h1 {
 
 h1[data-k-e68880c1] {
   color: red;
+}
+```
+
+---
+
+Example of scoping outside components
+
+```jsx
+function App() {
+  // Scope a solid-router link component, otherwise you will always need to type _a inside your scoped styling
+  return (
+    <A scoped href="url">Click me</A>
+  );
+}
+
+```
+
+---
+
+Example of scoping CSS variables
+
+```css
+:root {
+  --scoped-color: red;
+  --global-color: blue;
+}
+
+h1 {
+  color: var(--scoped-color, var(--global-color));
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+:root {
+  --9f86d081-color: red;
+  --global-color: blue;
+}
+
+h1[data-k-9f86d081] {
+  color: var(--9f86d081-color, var(--global-color));
 }
 ```
 

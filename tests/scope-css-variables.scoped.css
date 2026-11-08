@@ -1,0 +1,31 @@
+:root {
+  --scoped-color: red;
+  --scopedSize: 2rem;
+  --global-color: blue;
+  --not--scoped: green;
+}
+
+h1 {
+  --scoped-color: orange;
+  color: var(--scoped-color);
+  font-size: calc(var(--scopedSize) * 2);
+  background: var(--scoped-bg, var(--global-color));
+  border-color: var(--not--scoped);
+}
+
+/* =============== EXPECTED OUTPUT =============== */
+
+:root {
+  --9f86d081-color: red;
+  --9f86d081Size: 2rem;
+  --global-color: blue;
+  --not--scoped: green;
+}
+
+h1[data-k-9f86d081] {
+  --9f86d081-color: orange;
+  color: var(--9f86d081-color);
+  font-size: calc(var(--9f86d081Size) * 2);
+  background: var(--9f86d081-bg, var(--global-color));
+  border-color: var(--not--scoped);
+}
